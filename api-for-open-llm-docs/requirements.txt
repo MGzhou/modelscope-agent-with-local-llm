@@ -1,0 +1,22 @@
+openai>=1.6.1
+bitsandbytes
+pydantic==1.10.13
+fastapi>=0.104.1
+python-dotenv==1.0.0
+uvicorn
+tenacity
+sentencepiece
+tiktoken
+loguru
+transformers>=4.37.0
+peft>=0.4.0
+accelerate>=0.20.3
+sentence-transformers
+transformers_stream_generator
+cpm_kernels
+einops
+sse-starlette>=1.6.1
+starlette-context>=0.3.6,<0.4
+# Qwen1.5 GPTQ 量化模型所需额外依赖
+optimum==1.14.1
+auto-gptq==0.5.1
