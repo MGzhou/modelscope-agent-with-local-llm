@@ -123,9 +123,9 @@ messages.append({
 
 ## 版权说明
 
-此项目为 `Apache 2.0` 许可证授权，有关详细信息，请参阅 [LICENSE](https://github.com/MGzhou/modelscope-agent-with-local-llm/LICENSE.txt)文件。
+此项目为 `Apache 2.0` 许可证授权，有关详细信息，请参阅 [LICENSE](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/LICENSE)文件。
 
-## 鸣谢
+## 鸣谢 
 
 - [modelscope/modelscope-agent: ModelScope-Agent(开源版GPTs)](https://github.com/modelscope/modelscope-agent)
 - [xusenlinzy/api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm)
