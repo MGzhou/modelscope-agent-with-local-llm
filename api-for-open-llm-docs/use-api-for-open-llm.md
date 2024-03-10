@@ -18,7 +18,7 @@ python=3.10
 
 【4】进入下载的api-for-open-llm代码目录，将 本项目的`"api-for-open-llm-docs\server.py"` 和 `"api-for-open-llm-docs\.env"文件复制到api-for-open-llm代码目录下。
 
-![image-20240309220347647](C:\Users\ourchem\AppData\Roaming\Typora\typora-user-images\image-20240309220347647.png)
+
 
 【5】修改 `.env`配置文件的参数，下面几个是重要的参数。
 
