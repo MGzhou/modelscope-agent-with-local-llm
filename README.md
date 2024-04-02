@@ -26,7 +26,7 @@ modelscope-agent的v0.3版本相较于先前版本进行了大改，不再直接
 
 ### 3.2 启动大模型服务接口
 
-说明在本项目的 `api-for-open-llm-docs/use-api-for-open-llm.md` 文件。
+说明在本项目的 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
 
 > 一定要先启动大模型服务才可以运行agent
 
