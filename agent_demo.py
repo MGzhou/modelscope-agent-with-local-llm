@@ -61,6 +61,8 @@ print(f"\n用户提问:{user_prompt}\n------------------------------------------
 response = bot.run(user_prompt, remote=False, print_info=True)
 text = ''
 for chunk in response:
-    text += chunk
-print(f"\n[日志] 最终agent结果= \n{text}\n")
+    # text += chunk  # 可以选择全部拼接再输出
+    print(chunk, end='', flush=True)  # 实时输出最新结果
+
+# print(f"\n[日志] 最终agent结果= \n{text}\n")
 
