@@ -26,10 +26,10 @@
 
 ### 3.2 启动大模型服务接口
 
-- **方式1：**如果存在显卡（显存24GB），推荐使用api-for-open-llm启动服务：说明为 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
+- **方式1**：如果存在显卡（显存24GB），推荐使用api-for-open-llm启动服务：说明为 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
 - **方式2**：CPU启动，推荐llamacpp启动服务：说明为[llamacpp/readme.md](llamacpp/readme.md)文件。
 
-<p style="color:red; font-weight:bold;">一定要先启动大模型服务才可以运行agent</p>
+<font color=red size=5>一定要先启动大模型服务才可以运行agent</font>
 
 ---
 
@@ -49,7 +49,7 @@ python=3.10
 
 ```python
 llm_config = {
-    'model': 'qwen2',  # 该值需要和api-for-open-llm启动的模型名称一样
+    'model': 'qwen2',  # api-for-open-llm启动该值需要和其模型名称一样,llamacpp这个值可以随意设置。
     'model_server': 'openai',
     #　其他参数
     "api_base": "http://0.0.0.0:8012/v1",  # 大模型接口
