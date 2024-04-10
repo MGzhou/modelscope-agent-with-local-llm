@@ -24,12 +24,13 @@
 
 （1）下载本项目的代码
 
-### 3.2 启动大模型服务接口
+### 3.2 启动大模型服务
 
 - **方式1**：如果存在显卡（显存24GB），推荐使用api-for-open-llm启动服务：说明为 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
 - **方式2**：CPU启动，推荐llamacpp启动服务：说明为[llamacpp/readme.md](llamacpp/readme.md)文件。
 
-<font color=red size=5>一定要先启动大模型服务才可以运行agent</font>
+> [!WARNING]
+> **一定要先启动大模型服务才可以运行agent**
 
 ---
 
