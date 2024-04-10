@@ -2,8 +2,6 @@
 
 ## 1 介绍
 
-本项目是基于 [modelscope-agent-v0.3](https://github.com/modelscope/modelscope-agent) 和 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 或 [llamacpp](https://github.com/ggerganov/llama.cpp) 搭建本地大模型LLM实现AI Agent 使用自定义工具。
-
 本项目基于[modelscope-agent-v0.3](https://github.com/modelscope/modelscope-agent) 和 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 或 [llamacpp](https://github.com/ggerganov/llama.cpp)组件共同实现了一个AI Agent，能够利用本地的大模型（LLM）实现使用自定义工具功能。
 
 在modelscope-agent的最新版本（v0.3）中，与之前的版本相比，进行了重大的改进。它不再直接支持集成本地大型语言模型，而是通过OpenAI接口与之交互。因此，用户需启动一个集成了OpenAI API风格接口的大模型服务。
@@ -29,7 +27,6 @@
 ### 3.2 启动大模型服务接口
 
 - **方式1：**如果存在显卡（显存24GB），推荐使用api-for-open-llm启动服务：说明为 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
-
 - **方式2**：CPU启动，推荐llamacpp启动服务：说明为[llamacpp/readme.md](llamacpp/readme.md)文件。
 
 <p style="color:red; font-weight:bold;">一定要先启动大模型服务才可以运行agent</p>
