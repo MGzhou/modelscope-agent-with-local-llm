@@ -1,8 +1,12 @@
 # api-for-open-llm使用
 
-【1】下载[Qwen1.5-14B-Chat-GPTQ-Int8 ](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GPTQ-Int8/summary) 模型权重，将其`目录`记录下来。
+【1】下载
 
-> 启动Qwen1.5-14B-Chat-GPTQ-Int8 20GB以上显存比较合适
+- 下载[api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 项目代码，使用[v1.0.4](https://github.com/xusenlinzy/api-for-open-llm/releases/tag/api-for-open-llm-v1.0.4)。
+
+- 下载[Qwen1.5-14B-Chat-GPTQ-Int8 ](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GPTQ-Int8/summary) 模型权重，将其`目录`记录下来。
+
+> 启动Qwen1.5-14B-Chat-GPTQ-Int8 20GB以上显存比较合适。
 
 【2】准备运行环境。
 
@@ -16,7 +20,7 @@ python=3.10
 
 > 与`api-for-open-llm`官方说明的包相比，运行Qwen1.5 GPTQ 量化模型 需要增加optimum和auto-gptq包
 
-【4】进入下载的api-for-open-llm代码目录，将 本项目的`api-for-open-llm-docs\server.py` 和 `api-for-open-llm-docs\.env` 文件复制到api-for-open-llm代码目录下。
+【4】进入下载的**api-for-open-llm**代码目录，将**本项目**的`api-for-open-llm-docs\server.py` 和 `api-for-open-llm-docs\.env` 文件复制到api-for-open-llm代码目录下。
 
 
 

@@ -2,11 +2,15 @@
 
 ## 1 介绍
 
-本项目是基于[modelscope-agent-v0.3](https://github.com/modelscope/modelscope-agent)和[api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 搭建本地大模型LLM实现AI Agent 使用自定义工具。
+本项目是基于 [modelscope-agent-v0.3](https://github.com/modelscope/modelscope-agent) 和 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 或 [llamacpp](https://github.com/ggerganov/llama.cpp) 搭建本地大模型LLM实现AI Agent 使用自定义工具。
 
-modelscope-agent的v0.3版本相较于先前版本进行了大改，不再直接支持集成本地大模型，而是通过Openai接口访问大模型。因此，用户需启动一个集成了OpenAI API风格接口的大模型服务。
+本项目基于[modelscope-agent-v0.3](https://github.com/modelscope/modelscope-agent) 和 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 或 [llamacpp](https://github.com/ggerganov/llama.cpp)组件共同实现了一个AI Agent，能够利用本地的大模型（LLM）实现使用自定义工具功能。
 
-本项目通过 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 项目启动开源的 Qwen1.5 大模型，由于硬件限制，选择了 [Qwen1.5-14B-Chat-GPTQ-Int8 ](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GPTQ-Int8/summary) 。
+在modelscope-agent的最新版本（v0.3）中，与之前的版本相比，进行了重大的改进。它不再直接支持集成本地大型语言模型，而是通过OpenAI接口与之交互。因此，用户需启动一个集成了OpenAI API风格接口的大模型服务。
+
+为了实现与本地大模型交互，本项目采用了 [api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 或 [llamacpp](https://github.com/ggerganov/llama.cpp) 项目启动集成OpenAI API风格接口的本地大型模型服务。这样，modelscope-agent就可以利用这些服务与大型模型进行交互。
+
+由于硬件限制，在测试时，[api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 选择了 [Qwen1.5-14B-Chat-GPTQ-Int8](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GPTQ-Int8/summary)，llamacpp 选择了 [qwen1_5-14b-chat-q4_k_m.gguf](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GGUF/files)。
 
 本项目还根据需要，对modelscope-agent-v0.3的代码做了一些更改，具体在下面有说明。
 
@@ -20,19 +24,21 @@ modelscope-agent的v0.3版本相较于先前版本进行了大改，不再直接
 
 ### 3.1 下载
 
-（1）下载[api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm) 项目代码，使用[v1.0.4](https://github.com/xusenlinzy/api-for-open-llm/releases/tag/api-for-open-llm-v1.0.4)。
-
-（2）下载本项目的代码
+（1）下载本项目的代码
 
 ### 3.2 启动大模型服务接口
 
-说明在本项目的 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
+- **方式1：**如果存在显卡（显存24GB），推荐使用api-for-open-llm启动服务：说明为 [api-for-open-llm-docs/use-api-for-open-llm.md](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/api-for-open-llm-docs/use-api-for-open-llm.md) 文件。
 
-> 一定要先启动大模型服务才可以运行agent
+- **方式2**：CPU启动，推荐llamacpp启动服务：说明为[llamacpp/readme.md](llamacpp/readme.md)文件。
+
+<p style="color:red; font-weight:bold;">一定要先启动大模型服务才可以运行agent</p>
+
+---
 
 ### 3.3 运行 agent
 
-【1】准备运行环境，
+【1】**准备运行环境**
 
 python=3.10
 
@@ -42,7 +48,7 @@ python=3.10
 
 一键安装命令：`pip install -r requirements.txt`
 
-【2】设置agent_demo.py大模型参数
+【2】**设置agent_demo.py大模型参数**
 
 ```python
 llm_config = {
@@ -56,7 +62,7 @@ llm_config = {
 }
 ```
 
-【3】运行agent
+【3】**运行agent**
 
 运行agent_demo.py文件即可
 
@@ -113,11 +119,11 @@ max_turn = 3
 
 
 # 2 增加将 “调用工具后得到的结果” 添加到大模型输入中的代码
+# 这是由于在debug 过程中，发现得到工具的结果后，再次调用大模型self.llm.chat(prompt=planning_prompt,stream=True,...)函数时，发现调用工具的结果并没有进入messages中
 messages.append({
     'role': 'user',
     'content': planning_prompt
 })
-# 这是在我debug 过程中，发现得到工具的结果后，再次调用大模型self.llm.chat(prompt=planning_prompt,stream=True,...)函数时，发现调用工具的结果并没有进入messages中
 
 ```
 
@@ -125,7 +131,8 @@ messages.append({
 
 此项目为 `Apache 2.0` 许可证授权，有关详细信息，请参阅 [LICENSE](https://github.com/MGzhou/modelscope-agent-with-local-llm/blob/main/LICENSE)文件。
 
-## 鸣谢 
+## 鸣谢
 
 - [modelscope/modelscope-agent: ModelScope-Agent(开源版GPTs)](https://github.com/modelscope/modelscope-agent)
 - [xusenlinzy/api-for-open-llm](https://github.com/xusenlinzy/api-for-open-llm)
+- [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp)
