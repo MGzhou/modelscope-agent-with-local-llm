@@ -6,11 +6,13 @@ linux
 
 docker
 
+内存推荐32GB以上
+
 > 使用CPU推理，使用docker启动
 
 ## 模型
 
-使用[qwen1_5-14b-chat-q4_k_m.gguf](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GGUF/files)
+使用[qwen1_5-14b-chat-q4_k_m.gguf](https://modelscope.cn/models/qwen/Qwen1.5-14B-Chat-GGUF/files)，需要先下载模型。
 
 ## 基本用法
 
@@ -40,7 +42,7 @@ docker run -p 8012:8080 -v /data/huggingface/Qwen1.5-14B-Chat-GGUF:/models ghcr.
 
 *该启动方式需要先下载源码编译，具体可以参考[llamacpp官方教程](https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md)*
 
-如果是Windows则推荐这种方式启动，命令如下
+ps: 如果是Windows则推荐这种方式启动，命令如下
 
 ```
 server.exe -m models\qwen1_5-14b-chat-q4_k_m.gguf -c 4096 --host 0.0.0.0 --port 8012
